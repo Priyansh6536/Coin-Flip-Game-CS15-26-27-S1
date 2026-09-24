@@ -2,7 +2,8 @@ import random
 
 
 choices = ["heads", "tails"]
-streak = [0]
+streak = 0
+points = 10
 while True:
     value = random.choice(choices)
     guess = input("What is your guess? Type 'quit' to end game\n")
@@ -13,13 +14,28 @@ while True:
 
     guess = guess.lower()
     if guess in choices:
-        if guess == value:
-            print("Correct!")
-            streak[0] += 1
+        if streak < 5:
+            if guess == value:
+                print("Correct!")
+                streak += 1
+                points += 10
+            else:
+                print("Wrong!")
+                streak = 0
+                points = 0
+            print("Streak :", streak)
+            print("Points:", points)
         else:
-            print("Wrong!")
-            streak = [0]
-        print("Streak :", streak)
+            if guess == value:
+                print("Correct!")
+                streak += 1
+                points += 20
+            else:
+                print("Wrong!")
+                streak = 0
+                points = 0
+            print("Streak :", streak)
+            print("Points:", points)
     else:
         print("Invalid answer")
 
