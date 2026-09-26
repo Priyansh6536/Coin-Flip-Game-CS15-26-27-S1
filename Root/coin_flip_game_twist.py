@@ -3,7 +3,7 @@ import random
 
 choices = ["heads", "tails"]
 streak = 0
-points = 10
+points = 0
 while True:
     value = random.choice(choices)
     guess = input("What is your guess? Type 'quit' to end game\n")
